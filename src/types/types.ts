@@ -1,5 +1,3 @@
-import { Coordinate } from "ol/coordinate";
-
 export interface IVehicle {
     id: number;
     name: string;
@@ -7,8 +5,8 @@ export interface IVehicle {
     color: string;
     price: number;
     year: number;
-    latitude: Coordinate;
-    longitude: Coordinate
+    latitude: number;
+    longitude: number;
 }
 
 export enum VehicleSortingType {

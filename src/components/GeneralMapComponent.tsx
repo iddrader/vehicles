@@ -8,14 +8,14 @@ import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import {useGeographic} from 'ol/proj.js';
 
 type GeneralMapComponentProps = {
-    vehiclesList: IVehicle[],
+    vehiclesList: IVehicle[] | undefined,
     setGeneralMap: Function,
 }
 
 const GeneralMapComponent: React.FC<GeneralMapComponentProps> = ({vehiclesList, setGeneralMap}) => {
     useEffect(() => {
         useGeographic();
-        const pointsList = vehiclesList.map((vehicle) => {
+        const pointsList = vehiclesList?.map((vehicle) => {
             return new Point([vehicle.longitude, vehicle.latitude])
         })
 
@@ -31,7 +31,7 @@ const GeneralMapComponent: React.FC<GeneralMapComponentProps> = ({vehiclesList, 
                 }),
                 new VectorLayer({
                     source: new VectorSource({
-                        features: pointsList.map(point => new Feature(point))
+                        features: pointsList?.map(point => new Feature(point))
                     }),
                     style: {
                         'circle-radius': 4,
@@ -46,7 +46,7 @@ const GeneralMapComponent: React.FC<GeneralMapComponentProps> = ({vehiclesList, 
     return (
     <>
         <div id="map" style={{ width: '400px', height: '400px' }}></div>
-        <div id="bg" onClick={() => setGeneralMap(state => !state)}></div>
+        <div id="bg" onClick={() => setGeneralMap((state: boolean) => !state)}></div>
     </>
     )
 }

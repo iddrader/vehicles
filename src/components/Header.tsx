@@ -13,7 +13,7 @@ type HeaderProps = {
 }
 
 const Header: React.FC<HeaderProps> = ({onSort, setGeneralMap}) => {
-    const [vehicleFiltersVisible, setVehicleFiltersVisible] = useState<Boolean>();
+    const [vehicleFiltersVisible, setVehicleFiltersVisible] = useState(false);
 
     const showVehicleFilters = () => {
         setVehicleFiltersVisible(state => !state)
@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({onSort, setGeneralMap}) => {
     return (
         <div className='header'>
             <h1 className='header__title'>Vehicles list</h1>
-            <img src={MapIcon} className='icon-button' alt='Filter' onClick={() => setGeneralMap(state => !state)}/> 
+            <img src={MapIcon} className='icon-button' alt='Filter' onClick={() => setGeneralMap((state: boolean) => !state)}/> 
             <img src={FilterButtonImage} className='icon-button' alt='Filter' onClick={showVehicleFilters}/> 
             { vehicleFiltersVisible
                 ? <div className='header__buttons-container'>

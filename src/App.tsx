@@ -4,7 +4,6 @@ import CardContainer from './components/CardContainer.tsx';
 import { useEffect, useState } from 'react';
 import { IVehicle, VehicleSortingType } from './types/types.ts';
 import Loader from './components/Loader.tsx';
-import MapComponent from './components/Map.tsx';
 import GeneralMapComponent from './components/GeneralMapComponent.tsx';
 
 function App() {

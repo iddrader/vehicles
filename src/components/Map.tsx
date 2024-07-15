@@ -44,7 +44,7 @@ const MapComponent: React.FC<MapProps> = ({setMapIsVisible, latitude, longtitude
     return (
     <>
         <div id="map" style={{ width: '400px', height: '400px' }}></div>
-        <div id="bg" onClick={() => setMapIsVisible(state => !state)}></div>
+        <div id="bg" onClick={() => setMapIsVisible((state: boolean) => !state)}></div>
     </>
     )
 }
