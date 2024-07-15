@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 1.5rem 1rem;
+}
+
+.header__title {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.header__buttons-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.header__buttons-container .button {
+    display: flex;
+    align-items: center;
+}
