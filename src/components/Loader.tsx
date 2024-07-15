@@ -1,7 +1,8 @@
+import '../assets/styles/loader.css'
+
 const Loader: React.FC = () => {
-    // TODO create a spinner
     return (
-        <div>Loading</div>
+        <div className="loader-spinner"></div>
     )
 };
 

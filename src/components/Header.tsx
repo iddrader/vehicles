@@ -23,19 +23,19 @@ const Header: React.FC<HeaderProps> = ({onSort}) => {
             <img src={FilterButtonImage} className='icon-button' alt='Filter' onClick={showVehicleFilters}/> 
             { vehicleFiltersVisible
                 ? <div className='header__buttons-container'>
-                    <button className='button info' onClick={ () => onSort(VehicleSortingType.yearAscending)}>
+                    <button className='button primary' onClick={ () => onSort(VehicleSortingType.yearAscending)}>
                         Sort by year
                         <img src={ArrowUp} className='icon' />
                     </button>
-                    <button className='button info' onClick={ () => onSort(VehicleSortingType.yearDescending)}>
+                    <button className='button primary' onClick={ () => onSort(VehicleSortingType.yearDescending)}>
                         Sort by year
                         <img src={ArrowDown} className='icon' />
                     </button>
-                    <button className='button info' onClick={ () => onSort(VehicleSortingType.priceAscending)}>
+                    <button className='button primary' onClick={ () => onSort(VehicleSortingType.priceAscending)}>
                         Sort by price
                         <img src={ArrowUp} className='icon' />
                     </button>
-                    <button className='button info' onClick={ () => onSort(VehicleSortingType.priceDescending)}>
+                    <button className='button primary' onClick={ () => onSort(VehicleSortingType.priceDescending)}>
                         Sort by price
                         <img src={ArrowDown} className='icon'  />
                     </button>
