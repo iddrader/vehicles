@@ -2,7 +2,6 @@ import { IVehicle } from "../types/types"
 import '../assets/styles/Card.css'
 import '../assets/styles/buttons.css'
 import { useState } from "react";
-import Map from './Map.tsx'
 import MapComponent from "./Map.tsx";
 
 type CardProps = {
@@ -12,10 +11,11 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({vehicle, removeVehicle}) => {
     const [currentVehicle, setCurrentVehicle] = useState(vehicle)
-    const [fieldsToRender, setFieldsToRender] = useState(['name', 'model', 'year', 'color', 'price'])
-    const [fieldsToEdit, setFieldsToEdit] = useState(['name', 'model', 'price'])
     const [vehicleIsEditing, setVehicleIsEditing] = useState(false);
     const [mapIsVisible, setMapIsVisible] = useState(false);
+
+    const fieldsToRender = ['name', 'model', 'year', 'color', 'price']
+    const fieldsToEdit = ['name', 'model', 'price']
 
     const enableVehicleEditing = () => {
         setVehicleIsEditing(state => !state)

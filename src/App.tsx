@@ -4,10 +4,12 @@ import CardContainer from './components/CardContainer.tsx';
 import { useEffect, useState } from 'react';
 import { IVehicle, VehicleSortingType } from './types/types.ts';
 import Loader from './components/Loader.tsx';
+import MapComponent from './components/Map.tsx';
+import GeneralMapComponent from './components/GeneralMapComponent.tsx';
 
 function App() {
     const [vehiclesList, setVehiclesList] = useState<IVehicle[]>();
-    const apiKey = "cNDPTUinYYDcdiWXMoUnkLeg5USedAF19JPFecrA_GA";
+    const [generalMap, setGeneralMap] = useState(false);
 
     useEffect(() => {
         // fetch(`https://test.tspb.su/test-task/vehicles`)
@@ -245,10 +247,11 @@ function App() {
 
     return (
         <div className='main'>
-            <Header onSort={sortVehiclesList} />
+            <Header onSort={sortVehiclesList} setGeneralMap={setGeneralMap} />
             { vehiclesList 
                 ? <CardContainer vehiclesList={vehiclesList} removeVehicle={removeVehicle}/> 
                 : <Loader /> }
+            { generalMap && <GeneralMapComponent vehiclesList={vehiclesList} setGeneralMap={setGeneralMap}/>}
         </div>
     )
 }

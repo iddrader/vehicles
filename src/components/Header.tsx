@@ -1,16 +1,18 @@
 import FilterButtonImage from '/filter-left.svg'
 import ArrowDown from '/arrow-down.svg'
 import ArrowUp from '/arrow-up.svg'
+import MapIcon from '/geo-alt.svg'
 import '../assets/styles/Header.css'
 import { useState } from 'react'
 import '../assets/styles/icons.css'
 import { VehicleSortingType } from '../types/types'
 
-interface HeaderProps {
-    onSort: Function;
+type HeaderProps = {
+    onSort: Function,
+    setGeneralMap: Function,
 }
 
-const Header: React.FC<HeaderProps> = ({onSort}) => {
+const Header: React.FC<HeaderProps> = ({onSort, setGeneralMap}) => {
     const [vehicleFiltersVisible, setVehicleFiltersVisible] = useState<Boolean>();
 
     const showVehicleFilters = () => {
@@ -20,6 +22,7 @@ const Header: React.FC<HeaderProps> = ({onSort}) => {
     return (
         <div className='header'>
             <h1 className='header__title'>Vehicles list</h1>
+            <img src={MapIcon} className='icon-button' alt='Filter' onClick={() => setGeneralMap(state => !state)}/> 
             <img src={FilterButtonImage} className='icon-button' alt='Filter' onClick={showVehicleFilters}/> 
             { vehicleFiltersVisible
                 ? <div className='header__buttons-container'>

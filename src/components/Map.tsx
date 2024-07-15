@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import '../assets/styles/Map.css';
-import {Feature, Map, Overlay, View} from 'ol/index.js';
+import {Feature, Map, View} from 'ol/index.js';
 import {OSM, Vector as VectorSource} from 'ol/source.js';
 import {Point} from 'ol/geom.js';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
@@ -32,23 +32,21 @@ const MapComponent: React.FC<MapProps> = ({setMapIsVisible, latitude, longtitude
                 features: [new Feature(point)],
             }),
             style: {
-                'circle-radius': 9,
+                'circle-radius': 4,
                 'circle-fill-color': 'red',
             },
             }),
         ],
         });
 
-      }, []);
+    }, []);
 
-      
-    
-      return (
-        <>
-            <div id="map" style={{ width: '400px', height: '400px' }}></div>
-            <div id="bg" onClick={() => setMapIsVisible(state => !state)}></div>
-        </>
-      )
+    return (
+    <>
+        <div id="map" style={{ width: '400px', height: '400px' }}></div>
+        <div id="bg" onClick={() => setMapIsVisible(state => !state)}></div>
+    </>
+    )
 }
 
 export default MapComponent;
