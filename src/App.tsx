@@ -219,29 +219,22 @@ function App() {
   }, [])
 
   const sortVehiclesList = (type: VehicleSortingType) => {
+    const newVehiclesList = [...vehiclesList ?? []]
     switch(type){
         case VehicleSortingType.yearAscending:
-            setVehiclesList(state => {
-                return state?.sort((a, b) => a.year - b.year)
-            })
+            newVehiclesList?.sort((a, b) => a.year - b.year)
             break;
         case VehicleSortingType.yearDescending:
-            setVehiclesList(state => {
-                return state?.sort((a, b) => b.year - a.year)
-            })
+            newVehiclesList?.sort((a, b) => b.year - a.year)
             break;
         case VehicleSortingType.priceAscending:
-            setVehiclesList(state => {
-                return state?.sort((a, b) => a.price - b.price)
-            })
+            newVehiclesList?.sort((a, b) => a.price - b.price)
             break;
         case VehicleSortingType.priceDescending:
-            setVehiclesList(state => {
-                return state?.sort((a, b) => b.price - a.price)
-            })
+            newVehiclesList?.sort((a, b) => b.price - a.price)
             break;        
     }
-    console.log(vehiclesList)
+    setVehiclesList(newVehiclesList)
   }
 
   return (
